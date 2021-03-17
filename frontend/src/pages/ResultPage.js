@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
 import Container from "react-bootstrap/Container";
@@ -25,6 +25,10 @@ const ResultPage = () => {
       console.error(err.message);
     }
   };
+
+  useEffect(() => {
+    fetchData(1);
+  }, []);
 
   return (
     <Container className="container pt-5">
