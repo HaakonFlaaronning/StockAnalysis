@@ -30,11 +30,21 @@ const ResultTab = (props) => {
           <Row className="pb-2">
             <Col lg={2}>{index + 1}</Col>
             <Col lg={6}>
-              <Link to={{ pathname: "/yearly", state: { resid: item.resultid, metrics: item.metrics } }}>
+              <Link
+                to={{
+                  pathname: "/yearly",
+                  state: {
+                    resid: item.resultid,
+                    metrics: item.metrics,
+                    fromYear: props.fromYear,
+                    toYear: props.toYear,
+                  },
+                }}
+              >
                 {item.metrics}
               </Link>
             </Col>
-            <Col lg={4}>{item.avgreturn}</Col>
+            <Col lg={4}>{parseFloat(item.avgreturn).toFixed(2)}</Col>
           </Row>
         ))}
     </Container>

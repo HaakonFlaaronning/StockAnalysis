@@ -9,12 +9,28 @@ app.use(express.json());
 
 // Routes
 
-// Fetch main result
+// Fetch main between year
 app.get("/totdata/:length", async (req, res) => {
   try {
     const { length } = req.params;
-    const records = await pool.query("SELECT * FROM result WHERE length = $1 ORDER BY avgreturn DESC", [length]);
-    res.json(records.rows);
+    const { yearFrom, yearTo } = req.query;
+    const totRecords = await pool.query("SELECT resultid, metrics FROM result WHERE length = $1", [length]);
+    let recIds = [];
+    for (idx in totRecords.rows) {
+      recIds.push(totRecords.rows[idx].resultid);
+    }
+
+    const yearRecs = await pool.query(
+      "SELECT resultid, metrics, avg(avgreturn) as avgreturn \
+                                      FROM yearlyreturn \
+                                      WHERE resultid = ANY ($1) \
+                                      AND year >= $2 AND year <= $3 \
+                                      GROUP BY resultid, metrics",
+      [recIds, yearFrom, yearTo]
+    );
+    resRows = yearRecs.rows;
+    resRows.sort((a, b) => (parseFloat(a.avgreturn) < parseFloat(b.avgreturn) ? 1 : -1));
+    res.json(resRows);
   } catch (err) {
     console.error(err.message);
   }
@@ -24,7 +40,11 @@ app.get("/totdata/:length", async (req, res) => {
 app.get("/yeardata/:resid", async (req, res) => {
   try {
     const { resid } = req.params;
-    const records = await pool.query("SELECT * FROM yearlyreturn WHERE resultid = $1 ORDER BY year ASC", [resid]);
+    const { yearFrom, yearTo } = req.query;
+    const records = await pool.query(
+      "SELECT * FROM yearlyreturn WHERE resultid = $1 and year >= $2 and year <= $3 ORDER BY year ASC",
+      [resid, yearFrom, yearTo]
+    );
     res.json(records.rows);
   } catch (err) {
     console.error(err.message);

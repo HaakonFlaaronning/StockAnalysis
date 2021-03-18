@@ -33,7 +33,7 @@ const SelectedPage = (props) => {
     <Container className="container pt-3">
       <Button
         onClick={() => {
-          console.log(props.history.goBack());
+          props.history.goBack();
         }}
         variant="contained"
         color="primary"

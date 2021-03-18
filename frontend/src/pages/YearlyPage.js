@@ -7,17 +7,20 @@ import Button from "@material-ui/core/Button";
 const YearlyPage = (props) => {
   const [data, setData] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
+  let properties;
 
   const fetchData = async (resid) => {
     try {
-      console.log(resid);
       setIsLoading(true);
-      const response = await fetch(`http://localhost:5000/yeardata/${resid}`, {
-        headers: {
-          Accept: "application/json",
-        },
-        method: "GET",
-      });
+      const response = await fetch(
+        `http://localhost:5000/yeardata/${resid}?yearFrom=${properties.fromYear}&yearTo=${properties.toYear}`,
+        {
+          headers: {
+            Accept: "application/json",
+          },
+          method: "GET",
+        }
+      );
       const jsonData = await response.json();
       setData(jsonData);
       setIsLoading(false);
@@ -27,14 +30,15 @@ const YearlyPage = (props) => {
   };
 
   useEffect(() => {
-    fetchData(props.history.location.state.resid);
+    properties = props.history.location.state;
+    fetchData(properties.resid);
   }, []);
 
   return (
     <Container className="container pt-3">
       <Button
         onClick={() => {
-          console.log(props.history.goBack());
+          props.history.goBack();
         }}
         variant="contained"
         color="primary"
