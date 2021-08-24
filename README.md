@@ -2,6 +2,12 @@
 
 Compare common fundamental stock indicators to see what combination of indicator values made for the highest return from 2000-2019 by holding the top 30 stocks for one full year.
 
+Stock data were fetched from the API of Financial Modelling Prep: https://financialmodelingprep.com/developer/docs
+
+The data is stored in my local PostgreSQL database - a copy of the database can be found in the DatabaseBacup folder.
+
+The website is set up using React JS with Express js backend.
+
 ## Overview of indicators and average returns
 Combination of indicators can be selected by the tab at the top.
 ![Screenshot 2021-08-24 155232](https://user-images.githubusercontent.com/57355918/130629145-1e0add48-b9c6-43aa-a641-3a3247fceaa1.png)
