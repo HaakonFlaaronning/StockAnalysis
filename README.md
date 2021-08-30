@@ -9,10 +9,10 @@ The data is stored in my local PostgreSQL database. A copy of the database can b
 The website is set up using React JS with Express JS backend connected to the PostgreSQL database.
 
 ## Overview of indicators and average returns
-Combination of indicators can be selected by the tab at the top.
+Combination of metrics can be selected by one-five tab at the top.
 ![Screenshot 2021-08-24 155232](https://user-images.githubusercontent.com/57355918/130629145-1e0add48-b9c6-43aa-a641-3a3247fceaa1.png)
 
-## Example: Overview of yearly return by holding the top 30 companies with the best price to sales ratio
+## Example: Overview of yearly return by holding the top 30 companies with the best price to sales ratio for one full year
 ![image](https://user-images.githubusercontent.com/57355918/130629738-931c9917-ab1d-4335-944e-46ad50e2cc29.png)
 
 ## Example: The top 30 companies with the best price to sales ratio in year 2000
