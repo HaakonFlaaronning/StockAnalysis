@@ -16,6 +16,6 @@ Combination of metrics can be selected by one-five tab at the top.
 ![image](https://user-images.githubusercontent.com/57355918/130629738-931c9917-ab1d-4335-944e-46ad50e2cc29.png)
 
 ## Example: The top 30 companies with the best price to sales ratio in the first quarter of year 2000
-The returns are the total returns you would get by holding the stock for one full year until the first quarter of 2001.
+The one year return are the return you would get by holding the stock for one full year until the first quarter of 2001.
 ![image](https://user-images.githubusercontent.com/57355918/130629801-4721a099-394a-4483-bcad-eb3bf2218a2d.png)
 
