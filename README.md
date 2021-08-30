@@ -4,9 +4,9 @@ Comparison of common fundamental stock indicators to see what combination of ind
 
 Stock data were fetched from the API of Financial Modelling Prep: https://financialmodelingprep.com/developer/docs
 
-The data is stored in my local PostgreSQL database - a copy of the database can be found in the DatabaseBacup folder.
+The data is stored in my local PostgreSQL database. A copy of the database can be given upon request.
 
-The website is set up using React JS with Express JS backend connected to a PostgreSQL database.
+The website is set up using React JS with Express JS backend connected to the PostgreSQL database.
 
 ## Overview of indicators and average returns
 Combination of indicators can be selected by the tab at the top.
