@@ -6,7 +6,7 @@ Stock data were fetched from the API of Financial Modelling Prep: https://financ
 
 The data is stored in my local PostgreSQL database. A copy of the database can be given upon request.
 
-The website is set up using React JS with Express JS backend connected to the PostgreSQL database.
+Python was the programming lanuage of choice for the data analysis. The website is set up using React JS with Express JS backend connected to the PostgreSQL database.
 
 ## Overview of indicators and average returns
 Combination of metrics can be selected by one-five tab at the top.
